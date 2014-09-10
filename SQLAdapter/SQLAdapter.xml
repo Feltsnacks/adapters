@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Licensed Materials - Property of IBM
+    5725-I43 (C) Copyright IBM Corp. 2011, 2013. All Rights Reserved.
+    US Government Users Restricted Rights - Use, duplication or
+    disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<wl:adapter name="SQLAdapter"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:wl="http://www.worklight.com/integration"
+	xmlns:sql="http://www.worklight.com/integration/sql">
+
+	<displayName>SQLAdapter</displayName>
+	<description>SQLAdapter</description>
+	<connectivity>
+		<connectionPolicy xsi:type="sql:SQLConnectionPolicy">
+			<!-- Example for using a JNDI data source, replace with actual data source name -->
+			<!-- <dataSourceJNDIName>java:/data-source-jndi-name</dataSourceJNDIName> -->
+			
+			<!-- Example for using MySQL connector, do not forget to put the MySQL connector library in the project's lib folder -->
+			<dataSourceDefinition>
+				<driverClass>com.microsoft.sqlserver.jdbc.SQLServerDriver</driverClass>
+				<!-- Test server -->
+				<url>jdbc:sqlserver://retrd17:1433;databaseName=OrkTools;</url>
+				<!-- Prod server -->
+<!-- 				<url>jdbc:sqlserver://retrd17:1433;databaseName=ReStore;</url> -->
+				<user>OrkToolsMobileUser</user>
+				<password>5sdDGZ8K</password>
+			</dataSourceDefinition>
+		</connectionPolicy>
+		<loadConstraints maxConcurrentConnectionsPerNode="5" />
+	</connectivity>
+
+	<!-- Replace this with appropriate procedures -->
+	<procedure name = "getProjects" securityTest="LDAPSecurityTest"></procedure>
+	<procedure name = "getUsers" securityTest="LDAPSecurityTest"></procedure>
+	<procedure name = "getProjectUsers" securityTest="LDAPSecurityTest"></procedure>
+	<procedure name = "getTools" securityTest="LDAPSecurityTest"></procedure>
+	<procedure name = "getStatuses" securityTest="LDAPSecurityTest"></procedure>
+	<procedure name = "getStockStatus" securityTest="LDAPSecurityTest"></procedure>
+	<procedure name = "addStockStatus" securityTest="LDAPSecurityTest"></procedure>
+	<procedure name = "replaceStockStatus" securityTest="LDAPSecurityTest"></procedure>
+	<procedure name = "deleteStockStatus" securityTest="LDAPSecurityTest"></procedure>
+	<procedure name = "getVibrations" securityTest="LDAPSecurityTest"></procedure>
+	<procedure name = "getStorages" securityTest="LDAPSecurityTest"></procedure>
+	<procedure name = "addRequisitionItem" securityTest="LDAPSecurityTest"></procedure>
+<!-- 	<procedure name = "getReceptions" securityTest="LDAPSecurityTest"></procedure> -->
+	<procedure name = "getLocations" securityTest="LDAPSecurityTest"></procedure>
+	<procedure name = "getPicks" securityTest="LDAPSecurityTest"></procedure>
+	<procedure name = "getPickHeaders" securityTest="LDAPSecurityTest"></procedure>
+    <procedure name = "setPick" securityTest="LDAPSecurityTest"/>
+    <procedure name = "setPickHeader" securityTest="LDAPSecurityTest"/>
+	<procedure name = "getReceptionHeaders" securityTest="LDAPSecurityTest"></procedure>
+	<procedure name = "setReceptionHeader" securityTest="LDAPSecurityTest"></procedure>
+	<procedure name = "getReceptionItems" securityTest="LDAPSecurityTest"></procedure>
+	<procedure name = "setReceptionItem" securityTest="LDAPSecurityTest"></procedure>
+	<procedure name = "getDeviations" securityTest="LDAPSecurityTest"/>
+	<procedure name = "setStorage" securityTest="LDAPSecurityTest"/>
+    <procedure name = "getTransportations" securityTest="LDAPSecurityTest"/>
+    <procedure name = "addTransportation" securityTest="LDAPSecurityTest"/>
+    <procedure name = "updateTransportation" securityTest="LDAPSecurityTest"/>
+    <procedure name = "DummyReplaceAdapter" securityTest="LDAPSecurityTest"/>
+    <procedure name = "DummyAddAdapter" securityTest="LDAPSecurityTest"/>
+    <procedure name = "DummyRemoveAdapter" securityTest="LDAPSecurityTest"/>
+
+    <procedure name = "pingAdapter"/>
+    <procedure name = "LogIn" securityTest="LDAPSecurityTest"/>
+
+	
+<!-- 	<procedure name="DeviationTestAnders"></procedure> -->
+
+<!-- 	<procedure name="getProjects"> </procedure> -->
+<!-- 	<procedure name="getUsers"> </procedure>	 -->
+<!-- 	<procedure name="getProjectUsers"></procedure> -->
+<!-- 	<procedure name="LogIn"></procedure> -->
+<!-- 	<procedure name = "getTools"></procedure> -->
+<!-- 	<procedure name = "getStatuses"></procedure> -->
+<!-- 	<procedure name = "getStockStatus"></procedure> -->
+<!-- 	<procedure name = "addStockStatus"></procedure> -->
+<!-- 	<procedure name = "replaceStockStatus"></procedure> -->
+<!-- 	<procedure name = "deleteStockStatus"></procedure> -->
+<!-- 	<procedure name = "getVibrations"></procedure> -->
+<!-- 	<procedure name = "getStorages"></procedure> -->
+<!-- 	<procedure name = "getLocations"></procedure> -->
+	<!-- <procedure name = "getReceptions"></procedure> -->
+<!-- 	<procedure name = "getPickHeaders"></procedure> -->
+
+</wl:adapter>
